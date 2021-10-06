@@ -6,7 +6,7 @@ import { Navigation } from './components/Navigation';
 
 const TemplateDefault: React.FC = () => {
     return (
-        <div className="h-screen w-full flex gap-2.5 py-5 bg-gray-900 text-white">
+        <div className="h-screen w-full flex gap-2.5 py-5">
 
             <Navigation />
 
