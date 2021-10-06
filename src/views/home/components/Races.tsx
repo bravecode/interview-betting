@@ -1,15 +1,7 @@
-import { getRacesRequest } from '@store/ducks/races/actions';
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React from 'react';
 import { RacesTable } from './RacesTable';
 
 const Races: React.FC = () => {
-    const dispatch = useDispatch();
-
-    useEffect(() => {
-        dispatch(getRacesRequest());
-    }, [dispatch]);
-
     return (
         <section className="w-full py-10">
             

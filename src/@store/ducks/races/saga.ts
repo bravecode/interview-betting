@@ -1,15 +1,20 @@
+import { fetchPlayers } from "@services/races/player.service";
 import { fetchRaces } from "@services/races/races.service";
-import { TRaces } from "@services/types";
+import { TPlayers, TRaces } from "@services/types";
 import { AxiosResponse } from "axios";
 import { SagaIterator } from "redux-saga";
 import { all, call, fork, put, takeLatest } from "redux-saga/effects";
 import { getRacesError, getRacesRequest, getRacesSuccess } from "./actions";
-import { IRace } from "./reducer";
+import { IPlayer, IRace } from "./reducer";
 
 // Workers
 function* handleGetRacesRequest(): SagaIterator {
     try {
+        // Fetch Races
         const { data }: AxiosResponse<TRaces> = yield call(fetchRaces);
+
+        // Fetch Participants
+        const { data: players }: AxiosResponse<TPlayers> = yield call(fetchPlayers);
 
         // Format Data
         const races: IRace[] = data.map((race): IRace => {
@@ -17,7 +22,14 @@ function* handleGetRacesRequest(): SagaIterator {
                 ID: race.id,
                 active: race.active,
                 title: race.name,
-                participants: race.participants
+                participants: race.participants.map((participant): IPlayer => {
+                    const result = players.find((player) => player.id === participant);
+
+                    return {
+                        ID: participant,
+                        name: result?.body ?? 'N/A',
+                    }
+                }),
             }
         });
         

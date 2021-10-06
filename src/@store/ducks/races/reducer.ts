@@ -11,7 +11,12 @@ export interface IRace {
     ID: number;
     title: string;
     active: boolean;
-    participants: number[];
+    participants: IPlayer[];
+}
+
+export interface IPlayer {
+    ID: number;
+    name: string;
 }
 
 const defaultState: IRacesState = {

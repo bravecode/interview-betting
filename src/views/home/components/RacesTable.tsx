@@ -1,3 +1,4 @@
+import { Table } from '@components';
 import { IStore } from '@store';
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -9,7 +10,7 @@ export type TRacesView = 'all' | 'active' | 'inactive';
 
 const RacesTable: React.FC = () => {
     const [view, setView] = useState<TRacesView>('all');
-    const { races, pending } = useSelector((store: IStore) => store.races);
+    const { races } = useSelector((store: IStore) => store.races);
     
     // Handlers
     const handleViewChange = (value: TRacesView) => {
@@ -31,13 +32,8 @@ const RacesTable: React.FC = () => {
         });
     }
 
-    // TODO: Spinner Animation
-    if (pending) {
-        <div>Loading...</div>
-    }
-
     return (
-        <div className="rounded-lg border border-gray-200" style={{ width: '800px' }}>
+        <Table style={{ width: '800px' }}>
 
             <RacesCategories
                 view={view}
@@ -49,6 +45,7 @@ const RacesTable: React.FC = () => {
             {
                 getRaces().map((race) =>
                     <RacesTableRow
+                        key={race.ID}
                         ID={race.ID}
                         active={race.active}
                         title={race.title}
@@ -57,7 +54,7 @@ const RacesTable: React.FC = () => {
                 )
             }
 
-        </div>
+        </Table>
     );
 }
 
