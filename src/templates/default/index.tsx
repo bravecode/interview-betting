@@ -1,14 +1,15 @@
+import { IStore } from '@store';
 import { getRacesRequest } from '@store/ducks/races/actions';
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Switch, Route } from 'react-router-dom';
+import { Helmet } from 'react-helmet';
 
 import { Navigation } from './components/Navigation';
 
 // Views
 import Home from 'views/home';
 import Race from 'views/race';
-import { IStore } from '@store';
 
 const TemplateDefault: React.FC = () => {
     const { pending } = useSelector((store: IStore) => store.races);
@@ -26,6 +27,10 @@ const TemplateDefault: React.FC = () => {
 
     return (
         <div className="h-screen w-full flex gap-2.5 py-5">
+
+            <Helmet>
+                <title>Interview Application</title>
+            </Helmet>
 
             <Navigation />
 
