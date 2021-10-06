@@ -1,6 +1,6 @@
 import classNames from 'classnames';
 import React from 'react';
-import { TRacesView } from './Races';
+import { TRacesView } from './RacesTable';
 
 export interface IRacesCategoriesItemProps {
     value: TRacesView;

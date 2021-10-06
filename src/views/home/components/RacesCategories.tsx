@@ -1,5 +1,5 @@
 import React from 'react';
-import { TRacesView } from './Races';
+import { TRacesView } from './RacesTable';
 import { RacesCategoriesItem } from './RacesCategoriesItem';
 
 export interface IRacesCategoriesProps {
