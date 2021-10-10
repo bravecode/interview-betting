@@ -12,7 +12,7 @@ const RaceCategory: React.FC<IRaceCategoryProps> = ({
         return (
             <div className="flex gap-2.5 items-center text-indigo-500 font-semibold">
                 <span className="h-1.5 w-1.5 rounded-full bg-indigo-500" />
-                Active
+                <span>Active</span>
             </div>
         );
     }
@@ -20,7 +20,7 @@ const RaceCategory: React.FC<IRaceCategoryProps> = ({
     return (
         <div className="flex gap-2.5 items-center text-gray-400 font-semibold">
             <span className="h-1.5 w-1.5 rounded-full bg-gray-400" />
-            Inactive
+            <span>Inactive</span>
         </div>
     );
 }

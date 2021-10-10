@@ -16,7 +16,7 @@ const Radio: React.FC<IRadioProps> = ({
     const checked = selectedValue === value;
 
     // Handlers
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const handleChange = () => {
         onValueChange(name, value);
     }
 
