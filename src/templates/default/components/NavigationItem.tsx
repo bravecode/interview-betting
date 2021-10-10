@@ -13,7 +13,7 @@ const NavigationItem: React.FC<INavigationItemProps> = ({
     icon
 }) => {
     return (
-        <NavLink exact to={path} className="h-10 w-full flex items-center px-5 text-xs font-semibold gap-2.5 opacity-70 hover:opacity-100" activeClassName="bg-blue-600 rounded-sm opacity-100">
+        <NavLink exact to={path} className="h-10 w-full flex items-center px-5 text-xs font-semibold gap-2.5 hover:bg-gray-200 border-l-4 border-white" activeClassName="border-indigo-500 bg-gray-200 rounded-sm opacity-100">
             { icon }
             <span>
                 { label }

@@ -10,7 +10,7 @@ const NavigationGroup: React.FC<INavigationGroupProps> = ({
 }) => {
     return (
         <div>
-            <h4 className="h-10 w-full flex items-center px-5 text-sm font-semibold">
+            <h4 className="h-10 w-full flex items-center px-6 text-sm font-semibold">
                 { title }
             </h4>
             <div>

@@ -21,7 +21,7 @@ export interface IPlayer {
 
 const defaultState: IRacesState = {
     races: [],
-    pending: false,
+    pending: true,
     error: undefined
 }
 

@@ -10,6 +10,7 @@ import { Navigation } from './components/Navigation';
 // Views
 import Home from 'views/home';
 import Race from 'views/race';
+import { SpinnerIcon } from '@assets/icons/spinner.icon';
 
 const TemplateDefault: React.FC = () => {
     const { pending } = useSelector((store: IStore) => store.races);
@@ -20,13 +21,18 @@ const TemplateDefault: React.FC = () => {
         dispatch(getRacesRequest());
     }, [dispatch]);
 
-    // TODO: Spinner Animation
     if (pending) {
-        return <div>Loading...</div>
+        return (
+            <div className="h-screen w-full flex items-center justify-center">
+                <div className="h-12 w-12 animate-spin text-indigo-500">
+                    <SpinnerIcon />
+                </div>
+            </div>
+        );
     }
 
     return (
-        <div className="h-screen w-full flex gap-2.5 py-5">
+        <div className="h-screen w-full flex gap-2.5">
 
             <Helmet>
                 <title>Interview Application</title>

@@ -14,5 +14,8 @@ export * from './table/Table';
 export * from './table/TableHeader';
 export * from './table/TableRow';
 
+// UI - Alert
+export * from './alert/Alert';
+
 // Other
 export *  from './race-category/RaceCategory';

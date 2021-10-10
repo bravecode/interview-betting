@@ -11,11 +11,11 @@ const RaceHeader: React.FC<IRaceHeaderProps> = ({
     title
 }) => {
     return (
-        <header className="mb-5">
-            <h1 className="text-lg font-semibold mt-2.5">
+        <header className="mt-5 mb-5">
+            <RaceCategory active={active} />
+            <h1 className="text-lg font-semibold">
                 { title }
             </h1>
-            <RaceCategory active={active} />
         </header>
     );
 }

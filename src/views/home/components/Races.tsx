@@ -3,9 +3,9 @@ import { RacesTable } from './RacesTable';
 
 const Races: React.FC = () => {
     return (
-        <section className="w-full py-10">
+        <section className="w-full">
             
-            <header className="mb-5">
+            <header className="my-5">
                 <h2 className="text-lg font-semibold">
                     Races
                 </h2>

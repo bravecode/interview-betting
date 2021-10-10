@@ -1,4 +1,4 @@
-import { InputNumeric, Button, useForm, Table, TableHeader, TableRow } from '@components';
+import { InputNumeric, Button, useForm, Table, TableHeader, TableRow, Alert } from '@components';
 import { IPlayer } from '@store/ducks/races/reducer';
 import React, { useState } from 'react';
 import { RaceFormRadio } from './RaceFormRadio';
@@ -17,6 +17,7 @@ export interface IRaceFormValues {
 const RaceForm: React.FC<IRaceFormProps> = ({
     participants
 }) => {
+    const [error, setError] = useState(''); 
     const [showSpinner, setShowSpinner] = useState(false);
 
     // Form State
@@ -34,20 +35,39 @@ const RaceForm: React.FC<IRaceFormProps> = ({
         e.preventDefault();
 
         // Verify Data
-        if (!data.betValue || !data.first || !data.second || !data.first) {
+        if (!data.betValue) {
+            setError('Bet Value field is required.');
+
             return;
         }
 
+        if (!data.first || !data.second || !data.first) {
+            setError('You need to choose first, second and third place.');
+
+            return;
+        }
+
+        setError('');
         setShowSpinner(true);   
     }
 
     return (
         <form onSubmit={handleSubmit} style={{ width: '800px '}}>
+            
+            {
+                error && (
+                    <Alert>
+                        { error }
+                    </Alert>
+                )
+            }
+
             <InputNumeric
                 label="Bet Value"
                 name="betValue"
                 value={data.betValue}
                 onChange={onInputChange}
+                required
             />
 
             <Table className="my-5">

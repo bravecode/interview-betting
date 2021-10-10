@@ -5,7 +5,7 @@ import { IoHome, IoNewspaper, IoFlag } from 'react-icons/io5';
 
 const Navigation: React.FC = () => {
     return (
-        <div className="h-screen w-56 flex-shrink-0 px-2.5">
+        <div className="h-screen w-56 flex-shrink-0 border-r border-gray-200">
             
             <NavigationGroup title="Navigation">
                 <NavigationItem
