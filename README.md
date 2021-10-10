@@ -12,4 +12,5 @@ Across code, I have made multiple notes in the places I think could be improved 
     - Make Table component more universal (as well as other shared components).
     - ... and a lot more
 - Other
+    - More Unit Tests
 	- Configure TSlint & Prettier to maintain code rules & quality.
